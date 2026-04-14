@@ -1,10 +1,11 @@
 import Swal from "sweetalert2";
 
-export function redirect(message, url) {
+export function redirect(message, url, icono) {
     let timerInterval;
     Swal.fire({
         title: message,
         html: "I will close in <b></b> milliseconds.",
+        icon: icono,
         timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
@@ -16,6 +17,7 @@ export function redirect(message, url) {
         },
         willClose: () => {
             clearInterval(timerInterval);
+            window.location.href = url
         }
     })
 }
